@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup( name='widgets',
     version = '0.0.1',
-    description = 'Widgets that do simple things or complex things',
+    description = 'Widgets that do very simple things or complex things',
     author = 'Daryl Antony',
     author_email = 'daryl@commoncode.com.au',
     url = 'https://github.com/commoncode/widget',
