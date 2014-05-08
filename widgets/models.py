@@ -24,6 +24,7 @@ class Widget(CQRSModel, EnabledMixin, SlugMixin, TitleMixin):
 
 class WidgetAspect(CQRSPolymorphicModel):
     pass
+    # @@@ any base fields?
 
 
 class WidgetLink(WidgetAspect):
