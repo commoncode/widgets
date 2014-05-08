@@ -24,6 +24,6 @@ setup( name='widgets',
         'pip',
     ],
     install_requires = [
-        'django-entropy',
+        # 'django-entropy',
     ]
 )
