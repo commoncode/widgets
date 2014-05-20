@@ -12,6 +12,7 @@ fake = Factory.create()
 class WidgetTemplateFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = 'widgets.WidgetTemplate'
 
+    slug = 'category-feature' # This for now
     text = factory.LazyAttribute(lambda o: str(paragraphs(3, common=False)))
 
 
