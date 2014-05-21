@@ -5,7 +5,7 @@ from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
 
 from displays.factories import ContentFactory
-from displays.models import Display
+from displays.models import Display, DisplayInstance
 
 from ...factories import WidgetFactory
 
@@ -27,3 +27,7 @@ class Command(BaseCommand):
                 object_id = WidgetFactory().pk)
 
             print "Created Widget"
+
+        # Serialize Instances
+        for instance in DisplayInstance.objects.all():
+            instance.save()

@@ -1,3 +1,5 @@
+from random import choice
+
 import factory
 
 from django.contrib.webdesign.lorem_ipsum import paragraphs, words
@@ -12,7 +14,9 @@ fake = Factory.create()
 class WidgetTemplateFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = 'widgets.WidgetTemplate'
 
-    slug = 'category-feature' # This for now
+    # This for now
+    slug = factory.LazyAttribute(lambda o: choice(('category-feature-1',
+        'category-feature-2', 'category-feature-3')))
     text = factory.LazyAttribute(lambda o: str(paragraphs(3, common=False)))
 
 
