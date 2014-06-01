@@ -57,5 +57,3 @@ class WidgetMailChimpSignup(WidgetAspect):
     '''
     list_name = models.CharField(
         max_length=1024)
-
-
