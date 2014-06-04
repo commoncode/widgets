@@ -15,19 +15,7 @@ class WidgetTemplateFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = 'widgets.WidgetTemplate'
     FACTORY_DJANGO_GET_OR_CREATE = ('slug', )
 
-    text = factory.LazyAttribute(lambda o: str(paragraphs(3, common=False)))
-
-    @factory.lazy_attribute
-    def slug(self):
-        templates = (
-            'category-feature-1',
-            'category-feature-2',
-            'category-feature-3',
-            'home-aside',
-            'home-main'
-        )
-
-        return choice(templates)
+    slug = factory.LazyAttribute(lambda o: slugify(words(2, common=False)))
 
 
 class WidgetFactory(factory.django.DjangoModelFactory):
@@ -35,4 +23,5 @@ class WidgetFactory(factory.django.DjangoModelFactory):
     FACTORY_DJANGO_GET_OR_CREATE = ('title', 'template')
 
     title = factory.LazyAttribute(lambda o: words(2, common=False).title())
+    text = factory.LazyAttribute(lambda o: str(paragraphs(1, common=False)))
     template = factory.SubFactory(WidgetTemplateFactory)
