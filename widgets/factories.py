@@ -13,15 +13,26 @@ fake = Factory.create()
 
 class WidgetTemplateFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = 'widgets.WidgetTemplate'
+    FACTORY_DJANGO_GET_OR_CREATE = ('slug', )
 
-    # This for now
-    slug = factory.LazyAttribute(lambda o: choice(('category-feature-1',
-        'category-feature-2', 'category-feature-3')))
     text = factory.LazyAttribute(lambda o: str(paragraphs(3, common=False)))
+
+    @factory.lazy_attribute
+    def slug(self):
+        templates = (
+            'category-feature-1',
+            'category-feature-2',
+            'category-feature-3',
+            'home-aside',
+            'home-main'
+        )
+
+        return choice(templates)
 
 
 class WidgetFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = 'widgets.Widget'
+    FACTORY_DJANGO_GET_OR_CREATE = ('title', 'template')
 
     title = factory.LazyAttribute(lambda o: words(2, common=False).title())
     template = factory.SubFactory(WidgetTemplateFactory)
