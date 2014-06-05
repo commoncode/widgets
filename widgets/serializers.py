@@ -12,7 +12,7 @@ class WidgetTemplateSerializer(CQRSSerializer):
 
 
 class WidgetSerializer(CQRSSerializer):
-    pictures = ImageInstanceSerializer(many=True)
+    images = ImageInstanceSerializer(many=True)
     template = WidgetTemplateSerializer()
 
     class Meta:

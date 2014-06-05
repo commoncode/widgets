@@ -23,7 +23,7 @@ class Widget(CQRSModel, EnabledMixin, SlugMixin, TextMixin, TitleMixin):
     # enabled
 
     template = models.ForeignKey('WidgetTemplate')
-    pictures = GenericRelation(ImageInstance)
+    images = GenericRelation(ImageInstance)
 
 
 class WidgetTemplate(CQRSModel, AttributeMixin, SlugMixin):
