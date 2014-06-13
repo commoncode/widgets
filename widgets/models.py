@@ -8,7 +8,7 @@ from entropy.base import (
 from images.models import ImageInstance
 
 
-class Widget(CQRSModel, EnabledMixin, SlugMixin, TextMixin, TitleMixin):
+class Widget(CQRSModel, AttributeMixin, EnabledMixin, SlugMixin, TextMixin, TitleMixin):
     '''
     A Widget is a contained module of functionality that is displayed within a
     Display.
@@ -38,6 +38,8 @@ class WidgetTemplate(CQRSModel, AttributeMixin, SlugMixin):
     # slug
     # attr's
     pass
+
+
 
 
 class WidgetAspect(CQRSPolymorphicModel):
