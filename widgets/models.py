@@ -21,6 +21,7 @@ class Widget(CQRSModel, AttributeMixin, EnabledMixin, SlugMixin, TextMixin, Titl
     # text
     # slug
     # enabled
+    # attr's
 
     template = models.ForeignKey('WidgetTemplate')
     images = GenericRelation(ImageInstance)
