@@ -1,5 +1,4 @@
 from cqrs.serializers import CQRSSerializer
-
 from images.serializers import ImageInstanceSerializer
 
 from .models import Widget, WidgetTemplate
@@ -12,7 +11,7 @@ class WidgetTemplateSerializer(CQRSSerializer):
 
 
 class WidgetSerializer(CQRSSerializer):
-    images = ImageInstanceSerializer(many=True)
+    image = ImageInstanceSerializer()
     template = WidgetTemplateSerializer()
 
     class Meta:

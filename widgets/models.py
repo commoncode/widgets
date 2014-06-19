@@ -1,14 +1,15 @@
-from django.contrib.contenttypes.generic import GenericRelation
 from django.db import models
 
 from cqrs.models import CQRSModel, CQRSPolymorphicModel
 from entropy.base import (
     AttributeMixin, TextMixin, EnabledMixin, SlugMixin, TitleMixin
 )
+from images.mixins import ImageMixin
 from images.models import ImageInstance
 
 
-class Widget(CQRSModel, AttributeMixin, EnabledMixin, SlugMixin, TextMixin, TitleMixin):
+class Widget(CQRSModel, AttributeMixin, EnabledMixin, SlugMixin, TextMixin,
+    TitleMixin, ImageMixin):
     '''
     A Widget is a contained module of functionality that is displayed within a
     Display.
@@ -22,9 +23,9 @@ class Widget(CQRSModel, AttributeMixin, EnabledMixin, SlugMixin, TextMixin, Titl
     # slug
     # enabled
     # attr's
+    # images
 
     template = models.ForeignKey('WidgetTemplate')
-    images = GenericRelation(ImageInstance)
 
 
 class WidgetTemplate(CQRSModel, AttributeMixin, SlugMixin):
