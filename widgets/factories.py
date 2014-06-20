@@ -1,5 +1,3 @@
-from random import choice
-
 import factory
 
 from django.contrib.webdesign.lorem_ipsum import paragraphs, words
