@@ -5,11 +5,10 @@ from entropy.base import (
     AttributeMixin, TextMixin, EnabledMixin, SlugMixin, TitleMixin
 )
 from images.mixins import ImageMixin
-from images.models import ImageInstance
 
 
 class Widget(CQRSModel, AttributeMixin, EnabledMixin, SlugMixin, TextMixin,
-    TitleMixin, ImageMixin):
+             TitleMixin, ImageMixin):
     '''
     A Widget is a contained module of functionality that is displayed within a
     Display.
@@ -42,20 +41,12 @@ class WidgetTemplate(CQRSModel, AttributeMixin, SlugMixin):
     pass
 
 
-
-
 class WidgetAspect(CQRSPolymorphicModel):
-    pass
-    # @@@ any base fields?
+    widget = models.ForeignKey('Widget', related_name='aspects')
 
 
 class WidgetLink(WidgetAspect):
-
     link = models.ForeignKey('menus.Link')
-
-
-# class WidgetImage(WidgetAspect, ImageMixin):
-#     pass
 
 
 class WidgetMailChimpSignup(WidgetAspect):

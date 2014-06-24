@@ -16,6 +16,11 @@ class WidgetTemplateFactory(factory.django.DjangoModelFactory):
     slug = factory.LazyAttribute(lambda o: slugify(words(2, common=False)))
 
 
+class WidgetLinkFactory(factory.django.DjangoModelFactory):
+    FACTORY_FOR = 'widgets.WidgetLink'
+    FACTORY_DJANGO_GET_OR_CREATE = ('widget', 'link')
+
+
 class WidgetFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = 'widgets.Widget'
     FACTORY_DJANGO_GET_OR_CREATE = ('title', 'template')
